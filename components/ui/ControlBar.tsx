@@ -45,8 +45,8 @@ export default function ControlBar({ rotation, setRotation }: ControlBarProps) {
       className="mt-auto -mb-5 pointer-events-auto w-full max-w-7xl mx-auto px-6 md:px-12 z-30"
     >
       <div className="relative w-full bg-[#080808]/80 backdrop-blur-xl border border-white/10 overflow-hidden rounded-2xl shadow-2xl shadow-black/50">
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#FFD600]/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#FFD600]/50 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#FFD600]/70 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#FFD600] to-transparent" />
 
         <div className="flex justify-between items-center gap-4 md:gap-6 p-2 md:p-4">
 
