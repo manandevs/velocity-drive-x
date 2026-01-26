@@ -4,12 +4,8 @@ import React from 'react';
 
 const AnimatedCube = () => {
   return (
-    <div className="relative w-full h-screen bg-[#FF0074] text-white font-sans text-[11px] overflow-hidden flex flex-col items-center justify-center">
-      
-      {/* 
-        We use a local style tag here because Tailwind doesn't support 
-        complex multi-step keyframes (0%, 15%, 25%...) via inline classes easily.
-      */}
+    <div className="">
+
       <style jsx global>{`
         @keyframes rotateCube {
           0%, 10% { transform: rotateY(0deg) rotateX(0deg); }
@@ -43,22 +39,10 @@ const AnimatedCube = () => {
         }
       `}</style>
 
-      {/* Title Section */}
-      <div className="absolute top-10 text-center z-10">
-        <h1 className="text-2xl font-bold m-0">Animated Cube Slider</h1>
-        <p className="m-0 text-lg">CSS Only</p>
-        <br />
-        <p className="text-xs opacity-75">Best viewed in Firefox / Chrome</p>
-      </div>
-
-      {/* Slider Wrapper */}
+  
       <div className="relative w-[200px] h-[200px] perspective-[600px]">
-        
-        {/* 3D Container */}
         <div className="w-full h-full [transform-style:preserve-3d] animate-cube-rotate">
-          
-          {/* Slide X Group (Main, Before, After) */}
-          <div className="absolute w-full h-full [transform-style:preserve-3d] bg-cover bg-center [transform:rotateY(90deg)] 
+                    <div className="absolute w-full h-full [transform-style:preserve-3d] bg-cover bg-center [transform:rotateY(90deg)] 
             bg-[url('https://cdn.dribbble.com/users/5031/screenshots/7008431/dribbble.png')] 
             
             before:content-[''] before:absolute before:inset-0 before:bg-cover before:bg-center 
@@ -98,28 +82,8 @@ const AnimatedCube = () => {
 
         </div>
 
-        {/* Shadow */}
-        <div className="block w-[200px] h-[200px] bg-black/75 absolute top-[60%] left-0 right-0 m-auto -z-10 blur-[20px] animate-shadow-rotate"></div>
-        
+        <div className="block w-[200px] h-[200px] bg-black/75 absolute top-[60%] left-0 right-0 m-auto -z-10 blur-[20px] animate-shadow-rotate"></div>        
       </div>
-
-      {/* Credits */}
-      <p className="fixed bottom-[22px] w-full text-center z-50">
-        by 
-        <span className="ml-1">
-          <a 
-            href="http://www.albertohartzet.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="font-black text-blue-700 no-underline transition-all duration-150 linear pr-5 hover:text-[#ff6347] 
-            bg-[url('https://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png')] 
-            bg-no-repeat bg-right bg-[length:12px] brightness-200"
-          >
-            Alberto Hartzet
-          </a>
-        </span>
-      </p>
-
     </div>
   );
 };
