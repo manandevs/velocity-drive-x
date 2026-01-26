@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, ContactShadows } from "@react-three/drei";
+import { OrbitControls, Environment, ContactShadows, Loader, Html } from "@react-three/drei";
 import { Suspense } from "react";
 import Model from "./Model";
 import Platform from "./Platform";
@@ -31,9 +31,14 @@ export default function Scene({ rotationDegree }: SceneProps) {
         />
         <spotLight position={[-5, 5, -5]} intensity={1.5} color="#FFD600" />
         <Environment preset="city" />
-        
-        <Suspense fallback={null}>
-          <Model customRotationY={rotationRadians} />
+
+        <Suspense
+          fallback={
+            <Html center>
+              <Loader />
+            </Html>
+          }
+        >          <Model customRotationY={rotationRadians} />
           <Platform customRotationY={rotationRadians} />
           <ContactShadows
             position={[0.35, -1.06, 0]}
@@ -45,7 +50,7 @@ export default function Scene({ rotationDegree }: SceneProps) {
             color="#000000"
           />
         </Suspense>
-        
+
         <OrbitControls
           enableZoom={false}
           enableRotate={true}

@@ -4,7 +4,7 @@ import React from 'react';
 
 const AnimatedCube = () => {
   return (
-    <div className="">
+    <div className="w-auto h-auto">
 
       <style jsx global>{`
         @keyframes rotateCube {
