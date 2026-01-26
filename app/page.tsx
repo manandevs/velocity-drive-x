@@ -123,18 +123,13 @@ export default function Home() {
                 </div>
               ))}
 
-              <div className="hidden md:flex col-span-6 items-center justify-between p-6 px-8 bg-white/[0.02]">
-                <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-3">
-                    <Wifi className="w-4 h-4 text-gray-500" />
-                    <span className="text-xs font-mono text-[#FFD600]">12ms</span>
-                  </div>
-                  <div className="w-px h-6 bg-white/10" />
-                  <div className="flex items-center gap-3">
-                    <Cpu className="w-4 h-4 text-gray-500" />
-                    <span className="text-xs font-mono text-white">Active</span>
-                  </div>
-                </div>
+              <div className="flex col-span-6 items-center justify-between p-6 px-8 bg-white/[0.02]">
+                <input
+                  type="range"
+                  min="12"
+                  max="24"
+                  className="w-20 h-5 bg-gray-600 rounded-lg cursor-pointer"
+                />
 
                 <div className="flex items-center gap-3">
                   {socials.map(({ Icon, href }, i) => (
