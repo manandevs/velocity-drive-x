@@ -1,10 +1,13 @@
 "use client";
 
 import { useGLTF } from "@react-three/drei";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import { Object3D } from "three";
 
 export default function Model({ customRotationY = 0 }: { customRotationY?: number }) {
   const { scene } = useGLTF("/mclaren_f1_gtr_longtail_ams2.glb");
+  const modelRef = useRef<Object3D>(scene);
 
   const [modelProps, setModelProps] = useState({
     scale: 122.5,
@@ -12,6 +15,7 @@ export default function Model({ customRotationY = 0 }: { customRotationY?: numbe
     baseRotation: [0.05, -1.2, 0],
   });
 
+  // Responsive scaling & rotation
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -40,6 +44,14 @@ export default function Model({ customRotationY = 0 }: { customRotationY?: numbe
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Slow rotation animation
+  useFrame(() => {
+    if (modelRef.current) {
+      modelRef.current.rotation.y += 0.002; // Adjust speed here
+    }
+  });
+
+  // Final rotation combines base + customRotationY
   const finalRotation = [
     modelProps.baseRotation[0],
     modelProps.baseRotation[1] + customRotationY,
@@ -48,6 +60,7 @@ export default function Model({ customRotationY = 0 }: { customRotationY?: numbe
 
   return (
     <primitive
+      ref={modelRef}
       object={scene}
       scale={modelProps.scale}
       rotation={finalRotation}

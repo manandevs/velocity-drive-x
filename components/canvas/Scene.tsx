@@ -38,7 +38,8 @@ export default function Scene({ rotationDegree }: SceneProps) {
               <Loader />
             </Html>
           }
-        >          <Model customRotationY={rotationRadians} />
+        >
+          <Model customRotationY={rotationRadians} />
           <Platform customRotationY={rotationRadians} />
           <ContactShadows
             position={[0.35, -1.06, 0]}

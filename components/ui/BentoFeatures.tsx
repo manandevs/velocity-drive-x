@@ -1,7 +1,6 @@
 "use client";
 
-import { Gauge, Cpu, BarChart3, ArrowUpRight, Zap, Target } from "lucide-react";
-import AnimatedCube from "./AnimatedCube";
+import { Gauge, BarChart3, ArrowUpRight, Zap, Target } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
@@ -87,10 +86,6 @@ export default function BentoFeatures() {
           <p className="max-w-md backdrop-blur-[2px] text-gray-400 text-sm font-light leading-relaxed border-l border-[#FFD600]/50 pl-4 mt-6">
             Lorem ipsum dolor sit amet adipisicing elit. Accusantium explicabo, libero eum quas laudantium adipisci et sed dolorem unde, commodi nam?.
           </p>
-        </div>
-
-        <div className="hidden md:block">
-          <AnimatedCube />
         </div>
       </motion.div>
 
